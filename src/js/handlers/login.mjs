@@ -7,6 +7,8 @@ export function setLoginFormListener() {
     return;
   }
 
+  const inputs = form.querySelectorAll(".loginInput");
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,6 +16,6 @@ export function setLoginFormListener() {
     const profile = Object.fromEntries(formData.entries());
 
     // send to API
-    login(profile);
+    login(profile, inputs);
   });
 }
