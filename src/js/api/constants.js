@@ -1,0 +1,1 @@
+export const API_URL = 'http://nf-api.onrender.com/api/v1/social';
