@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
+    <title>NorOn - Login</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,11 +16,71 @@
     <meta name="author" content="Magnus Pladsen" />
     <meta name="language" content="English" />
     <link rel="icon" href="img/favicon.png" />
-    <link rel="stylesheet" href="/dist/css/styles.css" />
-    <script type="module" src="" defer></script>
+    <link rel="stylesheet" href="/dist/css/output.css" />
+    <!-- <script type="module" src="" defer></script> -->
   </head>
   <body>
-    <header><nav>NorOn</nav></header>
-    <footer></footer>
+    <header>
+      <nav class="flex px-10 py-5 bg-red-500 justify-between relative">
+        <div class="text-white text-2xl">NorOn</div>
+        <ul
+          class="absolute gap-6 flex py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row"
+        >
+          <a href="/index.html">
+            <li
+              class="hover:cursor-pointer underline underline-offset-4 opacity-100 transition-all"
+            >
+              Home
+            </li></a
+          ><a href="/feed">
+            <li
+              class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all group"
+            >
+              Feed
+            </li></a
+          ><a href="/profile">
+            <li
+              class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all group"
+            >
+              My profile
+            </li></a
+          >
+        </ul>
+      </nav>
+      <main class="text-center py-20">
+        <h1 class="text-6xl">Welcome</h1>
+        <h2 class="text-2xl pt-20 pb-5">Log in</h2>
+        <form class="w-fit mx-auto flex flex-col gap-5">
+          <div class="flex flex-col w-[300px] gap-1">
+            <label class="text-left underline" for="email">Email</label>
+            <input
+              class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+              type="email"
+              name="email"
+              id="email"
+            />
+          </div>
+          <div class="flex flex-col w-[300px] gap-1">
+            <label class="text-left underline" for="password">Password</label>
+            <input
+              class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+              type="password"
+              name="password"
+              id="password"
+            />
+          </div>
+        </form>
+        <div
+          class="pt-5 text-sm hover:cursor-pointer hover:underline hover:underline-offset-2 transition-all"
+        >
+          <a href="/profile/register">Register a new user</a>
+        </div>
+      </main>
+    </header>
+    <footer
+      class="bg-red-500 absolute py-5 w-full bottom-0 flex items-center justify-center"
+    >
+      <div class="text-white">&copy; Magnus Pladsen 2023</div>
+    </footer>
   </body>
 </html>
