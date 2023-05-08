@@ -7,6 +7,8 @@ export function setRegisterFormListener() {
     return;
   }
 
+  const inputs = form.querySelectorAll(".registerInput");
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,6 +16,6 @@ export function setRegisterFormListener() {
     const profile = Object.fromEntries(formData.entries());
 
     // send to API
-    register(profile);
+    register(profile, inputs);
   });
 }
