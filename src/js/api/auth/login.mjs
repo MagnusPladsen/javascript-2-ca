@@ -1,4 +1,8 @@
 import { API_URL } from "../constants.mjs";
+import {
+  saveTokenToLocalStorage,
+  saveProfileToLocalStorage,
+} from "../../storage/storage.mjs";
 
 const action = "/auth/login";
 const method = "POST";
@@ -15,6 +19,10 @@ export async function login(profile) {
     headers,
     body,
   });
-  const data = await response.json();
-  console.log(data);
+
+  const { accessToken, ...user } = await response.json();
+
+  saveTokenToLocalStorage(accessToken);
+
+  saveProfileToLocalStorage(user);
 }
