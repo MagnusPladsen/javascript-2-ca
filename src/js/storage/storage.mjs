@@ -15,3 +15,8 @@ export function getTokenFromLocalStorage() {
   const token = localStorage.getItem("token");
   return JSON.parse(token);
 }
+
+export function checkIfLoggedIn() {
+  const token = getTokenFromLocalStorage();
+  return token ? true : false;
+}
