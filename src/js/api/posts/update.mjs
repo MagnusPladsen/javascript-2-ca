@@ -5,6 +5,8 @@ const action = "/posts";
 const method = "PUT";
 
 export async function updatePost(post) {
+  if (!post.id) throw new Error("Missing post id");
+
   const url = `${API_URL}${action}/${post.id}}`;
   const body = JSON.stringify(post);
 
