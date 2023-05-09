@@ -1,9 +1,5 @@
 import { API_URL } from "../constants.mjs";
-import {
-  saveTokenToLocalStorage,
-  saveProfileToLocalStorage,
-  checkIfLoggedIn,
-} from "../../storage/storage.mjs";
+import * as storage from "../../storage/storage.mjs";
 
 const action = "/auth/login";
 const method = "POST";
@@ -20,7 +16,7 @@ export async function login(profile, inputs) {
       headers,
       body,
     });
-
+    
     const data = await response.json();
 
     if (data.errors) {
@@ -38,12 +34,12 @@ export async function login(profile, inputs) {
       return;
     }
 
-    saveTokenToLocalStorage(accessToken);
+    storage.saveToken(accessToken);
 
-    saveProfileToLocalStorage(user);
+    storage.saveProfile(user);
 
     // redirect to profile page if logged in successfully
-    if (checkIfLoggedIn()) {
+    if (storage.checkIfLoggedIn()) {
       window.location.href = "/feed/";
     }
   } catch (error) {

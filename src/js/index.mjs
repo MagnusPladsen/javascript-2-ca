@@ -1,7 +1,8 @@
 import { setRegisterFormListener } from "./handlers/register.mjs";
 import { setLoginFormListener } from "./handlers/login.mjs";
 import { setNavDropDownListener } from "./handlers/navDropDown.mjs";
-import { checkIfLoggedIn } from "./storage/storage.mjs";
+import * as storage from "./storage/storage.mjs";
+import * as posts from "./api/posts/index.mjs";
 
 setNavDropDownListener();
 
@@ -16,7 +17,7 @@ switch (path) {
     break;
   case "/profile/":
     // redirect to login if not logged in
-    if (checkIfLoggedIn()) {
+    if (!storage.checkIfLoggedIn()) {
       window.location.href = "/";
     }
 
