@@ -26,4 +26,14 @@ switch (path) {
     break;
 }
 
+/* posts.createPost({
+  title: "New post",
+  content: "New content",
+}); */
+
+/* posts.updatePost({
+  id: 5681,
+  title: "Updated title",
+  content: "Updated content",
+}); */
 
