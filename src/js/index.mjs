@@ -37,3 +37,13 @@ switch (path) {
   content: "Updated content",
 }); */
 
+/* posts.removePost(
+  5681
+); */
+
+/* posts.getPost(5680).then((post) => {
+  console.log(post);
+});
+posts.getPosts().then((posts) => {
+  console.log(posts);
+}); */
