@@ -64,7 +64,7 @@
             id="profileBanner"
             src="/src/images/bannerPlaceHolder.svg"
             alt="Profile picture"
-            class="absolute object-cover w-[100vw] h-[200px] -z-10 top-20 lg:top-16"
+            class="absolute object-cover w-[100vw] h-[200px] -z-10 top-20"
           />
           <h1 id="profileTitle" class="text-4xl text-white pt-10">
             Loading...
@@ -87,34 +87,12 @@
           </p>
           <p>Posts: <span id="profilePosts" class="font-bold">0</span></p>
         </div>
-        <div class="flex justify-between mx-auto gap-3">
-          <a class="w-fit mx-auto" href="/profile/edit"
-            ><button
-              class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
-            >
-              Edit profile
-            </button></a
-          >
-          <a class="w-fit mx-auto" href="/"
-            ><button
-              id="logoutButton"
-              class="px-4 py-2 border bg-red-500 hover:text-red-500 border-red-500 hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
-            >
-              Log out
-            </button></a
-          >
-        </div>
       </section>
-      <section class="py-20 md:px-[20vw] w-full">
+      <section class="pb-20 px-[10vw] md:px-[20vw] max-w-[700px] mx-auto">
         <div>
-          <h2 class="text-2xl pb-5">Your posts</h2>
-          <div id="postsContainer" class="flex flex-col gap-10 items-center">
-            You have not posted anything yet...
-            <button type="submit"
-            class="hidden px-4 py-2 border hover:bg-secondary bg-white hover:text-white text-secondary border-secondary rounded w-fit mx-auto transition-all hover:scale-110"
-            >
-              Edit post
-            </button>
+          <h2 class="text-2xl pb-5">User posts</h2>
+          <div id="postsContainer" class="flex flex-col gap-10">
+            They have not posted anything yet...
           </div>
         </div>
       </section>

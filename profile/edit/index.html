@@ -21,7 +21,9 @@
   </head>
   <body>
     <header>
-      <nav class="flex px-[10vw] md:px-10 py-5 bg-red-500 justify-between relative">
+      <nav
+        class="flex px-[10vw] md:px-10 py-5 bg-red-500 justify-between relative"
+      >
         <div
           class="text-white text-2xl hover:underline hover:underline-offset-2"
         >
@@ -45,88 +47,91 @@
           <li
             class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
           >
-            <a href="/feed"> Feed </a>
+            <a href="/posts"> Posts </a>
           </li>
           <li
             class="hover:cursor-pointer hover:opacity-100 underline underline-offset-4 transition-all"
           >
-            <a href="/profile/"> My profile </a>
+            <a href="/profile/"> Profile </a>
           </li>
         </ul>
       </nav>
-      <main class="text-center py-10">
-        <h1 class="text-2xl py-5">Edit profile</h1>
-        <form class="w-fit mx-auto flex flex-col gap-5">
-          <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-            <label class="text-left" for="name">Name</label>
-            <input
-              class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-              type="text"
-              name="name"
-              id="name"
-              pattern="^[\w]+$"
-              maxlength="20"
-            />
-          </div>
-          <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-            <label class="text-left" for="email">Email</label>
-            <input
-              class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-              type="email"
-              name="email"
-              id="email"
-              pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-            />
-          </div>
-          <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-            <label class="text-left" for="password">Password</label>
-            <input
-              class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-              type="password"
-              name="password"
-              id="password"
-              maxlength="8"
-            />
-          </div>
-          <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-            <label class="text-left" for="banner"
-              >Banner<span class="pl-2 text-gray-400 text-xs"
-                >*Optional</span
-              ></label
-            >
-            <input
-              class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-              type="text"
-              name="banner"
-              id="banner"
-            />
-          </div>
-          <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-            <label class="text-left" for="avatar"
-              >Avatar<span class="pl-2 text-gray-400 text-xs"
-                >*Optional</span
-              ></label
-            >
-            <input
-              class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-              type="text"
-              name="avatar"
-              id="avatar"
-            />
-          </div>
-          <button
-            class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
-            type="submit"
-          >
-            Save profile
-          </button>
-        </form>
-      </main>
     </header>
-    <footer
-      class="bg-red-500 absolute py-5 w-full bottom-0 flex items-center justify-center"
-    >
-      <div class="text-white">&copy; Magnus Pladsen 2023</div>
+    <main class="text-center py-10">
+      <h1 class="text-2xl py-5">Edit profile</h1>
+      <form class="w-fit mx-auto flex flex-col gap-5">
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="name">Name</label>
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="text"
+            name="name"
+            id="name"
+            pattern="^[\w]+$"
+            maxlength="20"
+          />
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="email">Email</label>
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="email"
+            name="email"
+            id="email"
+            pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+          />
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="password">Password</label>
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="password"
+            name="password"
+            id="password"
+            maxlength="8"
+          />
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="banner"
+            >Banner<span class="pl-2 text-gray-400 text-xs"
+              >*Optional</span
+            ></label
+          >
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="text"
+            name="banner"
+            id="banner"
+          />
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="avatar"
+            >Avatar<span class="pl-2 text-gray-400 text-xs"
+              >*Optional</span
+            ></label
+          >
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="text"
+            name="avatar"
+            id="avatar"
+          />
+        </div>
+        <button
+          class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
+          type="submit"
+        >
+          Save profile
+        </button>
+      </form>
+    </main>
+
+    <footer>
+      <div
+        class="bg-red-500 absolute py-5 w-full bottom-0 flex items-center justify-center"
+      >
+        <p class="text-white">&copy; Magnus Pladsen 2023</p>
+      </div>
     </footer>
   </body>
 </html>
