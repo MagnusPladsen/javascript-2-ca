@@ -7,7 +7,7 @@ const method = "GET";
 export async function getPost(id) {
   if (!id) throw new Error("Missing post id");
 
-  const url = `${API_URL}${action}/${id}}`;
+  const url = `${API_URL}${action}/${id}?_author=true`;
 
   const response = await authFetch(url, {
     method,
@@ -17,7 +17,7 @@ export async function getPost(id) {
 }
 
 export async function getPosts() {
-  const url = `${API_URL}${action}`;
+  const url = `${API_URL}${action}?_author=true`;
 
   const response = await authFetch(url, {
     method,
