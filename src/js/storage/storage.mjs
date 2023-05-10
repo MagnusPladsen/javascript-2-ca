@@ -20,3 +20,9 @@ export function checkIfLoggedIn() {
   const token = getToken();
   return token ? true : false;
 }
+
+export function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("profile");
+}
+
