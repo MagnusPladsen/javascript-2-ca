@@ -40,7 +40,7 @@ export async function login(profile, inputs) {
 
     // redirect to profile page if logged in successfully
     if (storage.checkIfLoggedIn()) {
-      window.location.href = "/feed/";
+      window.location.href = "/posts/";
     }
   } catch (error) {
     console.log(error);
