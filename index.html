@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NorOn - Login</title>
+    <title>NorOn - Home</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -21,7 +21,9 @@
   </head>
   <body>
     <header>
-      <nav class="flex px-[10vw] md:px-10 py-5 bg-red-500 justify-between relative">
+      <nav
+        class="flex px-[10vw] md:px-10 py-5 bg-red-500 justify-between relative"
+      >
         <div
           class="text-white text-2xl hover:underline hover:underline-offset-2"
         >
@@ -38,65 +40,47 @@
           id="navDropDownContent"
         >
           <li
-            class="hover:cursor-pointer underline underline-offset-4 opacity-100 transition-all"
+            class="hover:cursor-pointer transition-all underline underline-offset-4 opacity-100"
           >
             <a href="/index.html"> Home </a>
           </li>
-          <li
-            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
-          >
-            <a href="/posts"> Posts </a>
+          <li class="hover:cursor-pointer transition-all opacity-70">
+            <a href="/posts/"> Posts </a>
           </li>
           <li
             class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
           >
-            <a href="/profile/"> Profile </a>
+            <a href="/profile/">Profile </a>
           </li>
         </ul>
       </nav>
-      <main class="text-center py-10">
-        <h1 class="text-2xl py-5">Welcome back</h1>
-        <form class="w-fit mx-auto flex flex-col gap-5" id="loginForm">
-          <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-            <label class="text-left" for="email">Email</label>
-            <input
-              class="loginInput border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-              type="email"
-              name="email"
-              id="email"
-              pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-              title="Email must be a valid Noroff email. Example: john@stud.noroff.no, smith@noroff.no."
-              required
-            />
-          </div>
-          <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-            <label class="text-left" for="password">Password</label>
-            <input
-              class="loginInput border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-              type="password"
-              name="password"
-              id="password"
-              minlength="8"
-              required
-            />
-          </div>
-          <button
-            class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
-            type="submit"
-          >
-            Log in
-          </button>
-        </form>
-        <div
-          class="pt-5 text-sm hover:cursor-pointer hover:underline hover:underline-offset-2 transition-all"
-        >
-          <a href="/profile/register">Register a new user</a>
-        </div>
-      </main>
     </header>
+    <main class="text-center w-full py-10 md:px-[20vw]">
+      <h1 class="text-2xl py-5">Recent posts</h1>
+      <div
+        id="postsContainer"
+        class="pt-5 flex flex-col w-full lg:flex-row lg:flex-wrap items-center justify-center md:gap-5 mx-auto"
+      >
+        Loading posts...
+        <div
+          class="group hover:border-red-500 hover:shadow-lg hover:scale-105 hidden border border-gray-300 shadow bg-gray-100 rounded px-4 py-2 w-full md:w-[350px] h-[150px] flex-col gap-2"
+        >
+          <p
+            class="underline underline-offset-2 font-bold group-hover:text-red-500"
+          ></p>
+          <div class="flex justify-between w-full gap-5 text-sm">
+            <p>
+              Posted:
+              <span class="font-bold"> </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
     <footer>
       <div
-        class="bg-red-500 absolute py-5 w-full bottom-0 flex items-center justify-center"
+        class="bg-red-500 sticky py-5 w-full bottom-0 flex items-center justify-center"
       >
         <p class="text-white">&copy; Magnus Pladsen 2023</p>
       </div>
