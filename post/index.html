@@ -14,7 +14,7 @@
     />
     <meta name="author" content="Magnus Pladsen" />
     <meta name="language" content="English" />
-    <link rel="icon" href="img/favicon.png" />
+    <link rel="icon" href="/src/images/favicon.svg" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link rel="stylesheet" href="/dist/css/output.css" />
     <script type="module" src="/src/js/index.mjs" defer></script>
@@ -36,8 +36,8 @@
           id="hamburger"
         />
         <ul
-          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row"
-          id="navDropDownContent"
+          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-center"
+          id="navList"
         >
           <li class="hover:cursor-pointer transition-all">
             <a href="/index.html"> Home </a>
@@ -55,15 +55,21 @@
         </ul>
       </nav>
     </header>
-    <main class="text-center py-10 px-[10vw]">
-      <h1 id="postTitle" class="text-2xl py-5 underline">Post</h1>
+    <main class="text-center py-10 px-[10vw] min-h-[75vw]">
+      <h1 id="postTitle" class="text-2xl py-5">Post</h1>
       <div
         class="pt-5 flex flex-col items-center justify-center gap-10 max-w-[700px] mx-auto"
       >
         <p id="postContent" class="w-full text-left">Content loading...</p>
-        <div class="flex justify-between w-full pt-10 gap-5 text-sm">
-          <p id="postDate">01.01.2001</p>
-          <p id="postAuthor">Author</p>
+        <div id="postMedia"></div>
+        <div class="w-full">
+          <p id="postTags" class="text-sm text-left">
+            <span class="ml-1 font-bold text-black">tag</span>
+          </p>
+          <div class="flex justify-between w-full pt-2 gap-5">
+            <p id="postDate" class="text-xs">01.01.2001</p>
+            <p id="postAuthor" class="text-xs">Author</p>
+          </div>
         </div>
       </div>
       <a href="/posts/"
@@ -71,14 +77,14 @@
           class="px-4 py-2 mt-20 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
           type="submit"
         >
-          Back
+          Back to posts
         </button></a
       >
     </main>
 
     <footer>
       <div
-        class="bg-red-500 absolute py-5 w-full bottom-0 flex items-center justify-center"
+        class="bg-red-500 sticky py-5 w-full bottom-0 flex items-center justify-center"
       >
         <p class="text-white">&copy; Magnus Pladsen 2023</p>
       </div>

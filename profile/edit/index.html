@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NorOn - Profile</title>
+    <title>NorOn - Edit Post</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -14,7 +14,7 @@
     />
     <meta name="author" content="Magnus Pladsen" />
     <meta name="language" content="English" />
-    <link rel="icon" href="img/favicon.png" />
+    <link rel="icon" href="/src/images/favicon.svg" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link rel="stylesheet" href="/dist/css/output.css" />
     <script type="module" src="/src/js/index.mjs" defer></script>
@@ -36,92 +36,78 @@
           id="hamburger"
         />
         <ul
-          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row"
-          id="navDropDownContent"
+          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-center"
+          id="navList"
         >
           <li
-            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
+            class="hover:cursor-pointer hover:opacity-100 opacity-70 transition-all"
           >
-            <a href="/index.html"> Home </a>
+            <a href="/"> Login </a>
           </li>
           <li
-            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
+            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all group"
           >
-            <a href="/posts"> Posts </a>
-          </li>
-          <li
-            class="hover:cursor-pointer hover:opacity-100 underline underline-offset-4 transition-all"
-          >
-            <a href="/profile/"> Profile </a>
+            <a href="/profile/register/"> Register </a>
           </li>
         </ul>
       </nav>
     </header>
     <main class="text-center py-10">
-      <h1 class="text-2xl py-5">Edit profile</h1>
-      <form class="w-fit mx-auto flex flex-col gap-5">
+      <h1 class="text-2xl py-5">Edit post</h1>
+      <form class="w-fit mx-auto flex flex-col gap-5" id="createPostForm">
         <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="name">Name</label>
+          <label class="text-left" for="title">Title</label>
           <input
             class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
             type="text"
-            name="name"
-            id="name"
-            pattern="^[\w]+$"
+            name="title"
+            id="title"
             maxlength="20"
+            required
           />
         </div>
         <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="email">Email</label>
-          <input
-            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-            type="email"
-            name="email"
-            id="email"
-            pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-          />
+          <label class="text-left" for="body">Text</label>
+          <textarea
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner h-40"
+            type="text"
+            name="body"
+            id="body"
+            required
+          ></textarea>
         </div>
         <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="password">Password</label>
-          <input
-            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-            type="password"
-            name="password"
-            id="password"
-            maxlength="8"
-          />
-        </div>
-        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="banner"
-            >Banner<span class="pl-2 text-gray-400 text-xs"
+          <label class="text-left" for="media"
+            >Media<span class="pl-2 text-gray-400 text-xs"
               >*Optional</span
             ></label
           >
           <input
             class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-            type="text"
-            name="banner"
-            id="banner"
+            type="url"
+            name="media"
+            id="media"
           />
         </div>
         <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="avatar"
-            >Avatar<span class="pl-2 text-gray-400 text-xs"
-              >*Optional</span
+          <label class="text-left" for="tags"
+            >Tags<span class="pl-2 text-gray-400 text-xs"
+              >*Separate tags with commas</span
             ></label
           >
           <input
             class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
             type="text"
-            name="avatar"
-            id="avatar"
+            name="tags"
+            id="tags"
           />
         </div>
+
         <button
           class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
           type="submit"
         >
-          Save profile
+          Create post
         </button>
       </form>
     </main>
