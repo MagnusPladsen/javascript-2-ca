@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NorOn - Edit Post</title>
+    <title>NorOn - Edit profile</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -42,7 +42,7 @@
           <li
             class="hover:cursor-pointer hover:opacity-100 opacity-70 transition-all"
           >
-            <a href="/"> Login </a>
+            <a href="/"> Log in </a>
           </li>
           <li
             class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all group"
@@ -53,61 +53,41 @@
       </nav>
     </header>
     <main class="text-center py-10">
-      <h1 class="text-2xl py-5">Edit post</h1>
-      <form class="w-fit mx-auto flex flex-col gap-5" id="createPostForm">
+      <h1 class="text-2xl py-5">Edit profile</h1>
+      <form class="w-fit mx-auto flex flex-col gap-5" id="editProfileForm">
         <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="title">Title</label>
-          <input
-            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-            type="text"
-            name="title"
-            id="title"
-            maxlength="20"
-            required
-          />
-        </div>
-        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="body">Text</label>
-          <textarea
-            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner h-40"
-            type="text"
-            name="body"
-            id="body"
-            required
-          ></textarea>
-        </div>
-        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="media"
-            >Media<span class="pl-2 text-gray-400 text-xs"
+          <label class="text-left" for="banner"
+            >Banner<span class="pl-2 text-gray-400 text-xs"
               >*Optional</span
             ></label
           >
           <input
             class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
             type="url"
-            name="media"
-            id="media"
+            name="banner"
+            id="banner"
           />
         </div>
         <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
-          <label class="text-left" for="tags"
-            >Tags<span class="pl-2 text-gray-400 text-xs"
-              >*Separate tags with commas</span
+          <label class="text-left" for="avatar"
+            >Avatar<span class="pl-2 text-gray-400 text-xs"
+              >*Optional</span
             ></label
           >
           <input
             class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
-            type="text"
-            name="tags"
-            id="tags"
+            type="url"
+            name="avatar"
+            id="avatar"
           />
         </div>
-
         <button
-          class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
+        id="saveProfileButton"
+          disabled
+          class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
           type="submit"
         >
-          Create post
+          Save profile
         </button>
       </form>
     </main>

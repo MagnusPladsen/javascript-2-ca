@@ -1,4 +1,4 @@
-export function renderLoggedInNavBar(navList, profile, path) {
+export function displayLoggedInNavBar(navList, profile, path) {
   navList.innerHTML = `
   <li
   class="hover:cursor-pointer transition-all ${

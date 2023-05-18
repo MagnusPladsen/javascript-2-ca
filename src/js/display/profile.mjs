@@ -23,6 +23,7 @@ export async function displayProfile(name) {
     profileBanner.src = user.banner;
   }
   if (user.posts) {
+    // display posts from newest to oldest
     display.displayPosts(user.posts.reverse());
   }
 }

@@ -1,4 +1,4 @@
-import { register } from "../../api/auth/register.mjs";
+import * as auth from "../../api/auth/index.mjs"
 
 export function setRegisterFormListener() {
   const form = document.querySelector("#registerForm");
@@ -14,6 +14,6 @@ export function setRegisterFormListener() {
     const profile = Object.fromEntries(formData.entries());
 
     // send to API
-    register(profile);
+    auth.register(profile);
   });
 }

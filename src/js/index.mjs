@@ -9,8 +9,8 @@ import * as URL from "./url/index.mjs";
 
 const path = URL.getPath();
 
-navigation.setLoggedInChecker(path);
-navigation.setLoggedInNavBarListener(path);
+navigation.setLoggedInChecker();
+navigation.setLoggedInNavBarListener();
 navigation.setNavDropDownListener();
 
 switch (path) {
@@ -35,6 +35,9 @@ switch (path) {
     break;
   case "/profile/register/":
     profile.setRegisterFormListener();
+    break;
+  case "/profile/edit/":
+    profile.setEditFormListener();
     break;
   case "/post/":
     display.displayPost();
