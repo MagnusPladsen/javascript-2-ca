@@ -21,7 +21,7 @@ export function checkIfLoggedIn() {
   return token ? true : false;
 }
 
-export function logout() {
+export function logOut() {
   localStorage.removeItem("token");
   localStorage.removeItem("profile");
 }

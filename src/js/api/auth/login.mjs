@@ -1,5 +1,5 @@
 import { API_URL } from "../constants.mjs";
-import * as storage from "../../storage/storage.mjs";
+import * as storage from "../../storage/index.mjs";
 
 const action = "/auth/login";
 const method = "POST";

@@ -1,13 +1,11 @@
-import { login } from "../api/auth/login.mjs";
+import { register } from "../../api/auth/register.mjs";
 
-export function setLoginFormListener() {
-  const form = document.querySelector("#loginForm");
+export function setRegisterFormListener() {
+  const form = document.querySelector("#registerForm");
 
   if (!form) {
     return;
   }
-
-  const inputs = form.querySelectorAll(".loginInput");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -16,6 +14,6 @@ export function setLoginFormListener() {
     const profile = Object.fromEntries(formData.entries());
 
     // send to API
-    login(profile, inputs);
+    register(profile);
   });
 }

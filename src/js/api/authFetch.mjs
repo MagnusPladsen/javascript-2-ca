@@ -1,4 +1,4 @@
-import * as storage from "../storage/storage.mjs";
+import * as storage from "../storage/index.mjs";
 
 export function headers() {
   const token = storage.getToken();

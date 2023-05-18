@@ -1,57 +1,80 @@
-// one function for creating all html for a post
+import * as posts from "../api/posts/index.mjs";
+import * as URL from "../url/index.mjs";
 
-// one function for insterting html to the specific post page
-
-// one function for inserting html to the posts page
-
-export function displayPost(post) {
-  //find a way to decide to render one or all posts
-  //error handling?
+export async function displayPost() {
+  
+  const postUrlParams = new URLSearchParams(window.location.search);
+  const postId = postUrlParams.get("id");
+  const post = await posts.getPost(postId);
+  
   // comments
   // reactions
+  if (!post) {
+    return;
+  }
+
   const postTitle = document.querySelector("#postTitle");
   const postContent = document.querySelector("#postContent");
   const postDate = document.querySelector("#postDate");
   const postAuthor = document.querySelector("#postAuthor");
+  const postMedia = document.querySelector("#postMedia");
+  const postTags = document.querySelector("#postTags");
   postTitle.innerHTML = post.title;
   postContent.innerHTML = post.body;
   postDate.innerHTML = `Posted: <span class="font-bold">${post.created.slice(
     0,
     10
   )}</span>`;
-  postAuthor.innerHTML = `By: <a href="/profile/${post.author.name}" class="font-bold">${post.author.name}</a>`;
+  postAuthor.innerHTML = `By: <a href="/profile/user/?name=${post.author.name}" class="font-bold hover:text-red-500 hover:underline underline-offset-2">${post.author.name}</a>`;
+  if (post.media) {
+    postMedia.innerHTML = `
+    <img
+    src="${post.media}"
+    alt="Post media"
+    class="w-full object-cover h-auto" /> `;
+  }
+  if (post.tags) {
+    postTags.innerHTML = `
+      Tags: ${post.tags.map(
+        (tag) => `<span class="ml-1 font-bold text-black">${tag}</span>`
+      )}
+    `;
+  }
 }
 
-export function displayPosts(posts) {
-  const path = window.location.pathname;
+export async function displayPosts(postList) {
+  const path = URL.getPath();
   const postsContainer = document.querySelector("#postsContainer");
+  let postsList = postList;
+  
+  if (!postsList) {
+    postsList = await posts.getPosts();
+  }
+
   postsContainer.innerHTML = "";
-  posts.map((post) => {
+  postsList.map((post) => {
     postsContainer.innerHTML += `
     <a href="/post/?id=${post.id}" class="w-fit">
-      <div class="group hover:cursor-pointer hover:border-red-500 hover:shadow-lg hover:scale-105 bg-gray-100 border border-gray-300 rounded shadow px-4 py-2 flex flex-col gap-2 transition-all w-full md:w-[350px] h-[150px] justify-between">
-        <p class="underline underline-offset-2 font-bold transition-all group-hover:text-red-500">${
+      <div class="group hover:cursor-pointer hover:border-red-500 hover:shadow-lg hover:scale-105 bg-gray-100 border border-gray-300 rounded shadow p-4 flex flex-col gap-4 transition-all w-full md:w-[350px] justify-between">
+        <p class="text-lg font-bold transition-all group-hover:text-red-500">${
           post.title
         }</p>
-        <p>${
-          post.body.length > 50 ? post.body.slice(0, 50) + "..." : post.body + "..."
-        }</p>
-        <div class="flex items-center justify-between w-full gap-5 text-sm">
-          <p>Posted:
-            <span class="font-bold">${post.created.slice(0, 10)}
-            </span>
+        <p class="text-left pb-4">${post.body}</p>
+        <div class="flex items-center justify-between w-full gap-5 text-xs font-bold text-gray-400">
+          <p class="">${post.created.slice(0, 10)}
           </p>
           ${
-          path === "/posts/"
-          ? `
+            path === "/posts/"
+              ? `
             <p>By:
-              <span class="font-bold">${post.author.name}</span>
+              <span class="font-bold group-hover:text-black">${post.author.name}</span>
             </p>
           `
-          : ""}
+              : ""
+          }
           ${
-          path === "/profile/"
-            ? `
+            path === "/profile/"
+              ? `
           <form action="/post/edit?id=${post.id}"
             ><button type="submit"
             class="px-4 py-2 border hover:bg-secondary bg-white hover:text-white text-secondary border-secondary rounded w-fit mx-auto transition-all hover:scale-110"
@@ -59,7 +82,8 @@ export function displayPosts(posts) {
               Edit post
             </button>
           </form>`
-            : ""}
+              : ""
+          }
         </div>
       </div>
     </a>`;

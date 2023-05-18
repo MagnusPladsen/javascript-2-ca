@@ -1,91 +1,50 @@
-import { setRegisterFormListener } from "./handlers/register.mjs";
-import { setLoginFormListener } from "./handlers/login.mjs";
-import { setNavDropDownListener } from "./handlers/navDropDown.mjs";
-import * as storage from "./storage/storage.mjs";
-import * as posts from "./api/posts/index.mjs";
-import { displayPost, displayPosts } from "./display/post.mjs";
-import { setLogOutListener } from "./handlers/logout.mjs";
-import { displayProfile } from "./display/profile.mjs";
+import * as storage from "./storage/index.mjs";
+import * as navigation from "./handlers/navigation/index.mjs";
+import * as post from "./handlers/posts/index.mjs";
+import * as profile from "./handlers/profile/index.mjs";
+import * as display from "./display/index.mjs";
+import * as URL from "./url/index.mjs";
 
-setNavDropDownListener();
+// TODO: ERROR HANDLING
 
-const path = window.location.pathname;
-console.log("path: " + path);
+const path = URL.getPath();
+
+navigation.setLoggedInChecker(path);
+navigation.setLoggedInNavBarListener(path);
+navigation.setNavDropDownListener();
 
 switch (path) {
-  case "/profile/register/":
-    setRegisterFormListener();
-    break;
   case "/":
     if (storage.checkIfLoggedIn()) {
       window.location.href = "/posts/";
     }
-    setLoginFormListener();
+    profile.setLoginFormListener();
     break;
   case "/index.html":
     if (storage.checkIfLoggedIn()) {
       window.location.href = "/posts/";
     }
-    setLoginFormListener();
+    profile.setLoginFormListener();
     break;
   case "/profile/":
-    // redirect to login if not logged in
-    if (!storage.checkIfLoggedIn()) {
-      window.location.href = "/";
-    }
-    const loggedInProfile = storage.getProfile();
-    setLogOutListener();
-    displayProfile(loggedInProfile.name);
+    display.displayProfile(storage.getProfile().name);
+    profile.setLogOutListener();
     break;
   case "/profile/user/":
-    // redirect to login if not logged in
-    if (!storage.checkIfLoggedIn()) {
-      window.location.href = "/";
-    }
-    const userUrlParams = new URLSearchParams(window.location.search);
-    const profileName = userUrlParams.get("name");
-    displayProfile(profileName);
+    display.displayProfile(URL.getParams("name"));
+    break;
+  case "/profile/register/":
+    profile.setRegisterFormListener();
     break;
   case "/post/":
-    // redirect to login if not logged in
-    if (!storage.checkIfLoggedIn()) {
-      window.location.href = "/";
-    }
-    // get id from url
-    const postUrlParams = new URLSearchParams(window.location.search);
-    const postId = postUrlParams.get("id");
-    const post = await posts.getPost(postId);
-    displayPost(post);
-
+    display.displayPost();
+    break;
+  case "/post/new/":
+    post.createPost();
     break;
   case "/posts/":
-    // redirect to login if not logged in
-    if (!storage.checkIfLoggedIn()) {
-      window.location.href = "/";
-    }
-    displayPosts(await posts.getPosts());
+    display.displayPosts();
+    break;
   default:
     break;
 }
-
-/* posts.createPost({
-  title: "New post",
-  content: "New content",
-}); */
-
-/* posts.updatePost({
-  id: 5681,
-  title: "Updated title",
-  content: "Updated content",
-}); */
-
-/* posts.removePost(
-  5681
-); */
-
-/* posts.getPost(5680).then((post) => {
-  console.log(post);
-});
-posts.getPosts().then((posts) => {
-  console.log(posts);
-}); */
