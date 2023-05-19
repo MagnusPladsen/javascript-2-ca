@@ -6,6 +6,8 @@ import * as display from "./display/index.mjs";
 import * as URL from "./url/index.mjs";
 
 // TODO: ERROR HANDLING
+// TODO: FIX LOGOUT
+// TODO: SORT AND SEARCH
 
 const path = URL.getPath();
 
@@ -32,6 +34,7 @@ switch (path) {
     break;
   case "/profile/user/":
     display.displayProfile(URL.getParams("name"));
+    profile.setFollowUserListener();
     break;
   case "/profile/register/":
     profile.setRegisterFormListener();
@@ -43,7 +46,10 @@ switch (path) {
     display.displayPost();
     break;
   case "/post/new/":
-    post.createPost();
+    post.setCreatePostListener();
+    break;
+  case "/post/edit/":
+    post.setUpdatePostListener();
     break;
   case "/posts/":
     display.displayPosts();
@@ -51,3 +57,5 @@ switch (path) {
   default:
     break;
 }
+
+console.log(storage.getProfile());
