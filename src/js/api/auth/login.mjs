@@ -1,12 +1,13 @@
 import { API_URL } from "../constants.mjs";
 import * as storage from "../../storage/index.mjs";
+import * as profile from "../profile/index.mjs";
 
 const action = "/auth/login";
 const method = "POST";
 
-export async function login(profile, inputs) {
+export async function login(profileData) {
   const url = `${API_URL}${action}`;
-  const body = JSON.stringify(profile);
+  const body = JSON.stringify(profileData);
   const headers = {
     "Content-Type": "application/json",
   };
@@ -16,16 +17,8 @@ export async function login(profile, inputs) {
       headers,
       body,
     });
-    
-    const data = await response.json();
 
-    if (data.errors) {
-      inputs.forEach((input) => {
-        input.style.border = "1px solid red";
-      });
-      alert(data.errors[0].message);
-      return;
-    }
+    const data = await response.json();
 
     const { accessToken, ...user } = data;
 
@@ -36,7 +29,10 @@ export async function login(profile, inputs) {
 
     storage.saveToken(accessToken);
 
-    storage.saveProfile(user);
+    // get full profile with following and followers array
+    const fullProfile = await profile.getProfile(user.name);
+
+    storage.saveProfile(fullProfile);
 
     // redirect to profile page if logged in successfully
     if (storage.checkIfLoggedIn()) {

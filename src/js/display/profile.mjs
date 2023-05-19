@@ -24,6 +24,6 @@ export async function displayProfile(name) {
   }
   if (user.posts) {
     // display posts from newest to oldest
-    display.displayPosts(user.posts.reverse());
+    display.displayProfilePosts(user.posts.reverse());
   }
 }

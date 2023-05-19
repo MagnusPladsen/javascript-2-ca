@@ -4,7 +4,7 @@ import { authFetch } from "../authFetch.mjs";
 const action = "/posts";
 const method = "DELETE";
 
-export async function removePost(id) {
+export async function deletePost(id) {
   if (!id) throw new Error("Missing post id");
 
   const url = `${API_URL}${action}/${id}}`;

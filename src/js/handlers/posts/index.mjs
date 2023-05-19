@@ -1,3 +1,3 @@
-export * from "./createPost.mjs";
-/* export * from "./deletePost.mjs"; */
-export * from "./editPost.mjs";
+export * from "./create.mjs";
+export * from "./delete.mjs";
+export * from "./update.mjs";

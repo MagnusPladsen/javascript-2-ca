@@ -1,6 +1,6 @@
 import * as posts from "../../api/posts/index.mjs";
 
-export function createPost() {
+export function setCreatePostListener() {
   const form = document.querySelector("#createPostForm");
 
   if (!form) {
