@@ -25,3 +25,23 @@ export async function getPosts() {
 
   return await response.json();
 }
+
+export async function getPostsByTag(tag) {
+  const url = `${API_URL}${action}?_author=true&_tag=${tag}`;
+
+  const response = await authFetch(url, {
+    method,
+  });
+
+  return await response.json();
+}
+
+export async function getPostsByDate(sortType) {
+  const url = `${API_URL}${action}?_author=true&sort=created&sortOrder=${sortType}`;
+
+  const response = await authFetch(url, {
+    method,
+  });
+
+  return await response.json();
+}
