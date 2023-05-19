@@ -57,5 +57,3 @@ switch (path) {
   default:
     break;
 }
-
-console.log(storage.getProfile());

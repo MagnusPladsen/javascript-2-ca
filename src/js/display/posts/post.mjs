@@ -3,7 +3,7 @@ import * as URL from "../../url/index.mjs";
 
 export async function displayPost() {
   const postId = URL.getParams("id");
-  
+
   const post = await posts.getPost(postId);
 
   // comments
@@ -24,7 +24,20 @@ export async function displayPost() {
     0,
     10
   )}</span>`;
-  postAuthor.innerHTML = `By: <a href="/profile/user/?name=${post.author.name}" class="font-bold hover:text-red-500 hover:underline underline-offset-2">${post.author.name}</a>`;
+  postAuthor.innerHTML = `By: <a href="/profile/user/?name=${
+    post.author.name
+  }" class="font-bold hover:text-red-500 hover:underline underline-offset-2"><div class="flex items-center gap-1"><p>${
+    post.author.name
+  }</p><img
+  id="profilePicture"
+  src="${
+    post.author.avatar ? post.author.avatar : "/src/images/whiteProfilePlaceHolder.svg"
+  }"
+  alt="Profile picture"
+  height="15"
+  width="25"
+  class="rounded-full transition-all"
+  /></div></a>`;
   if (post.media) {
     postMedia.innerHTML = `
     <img
