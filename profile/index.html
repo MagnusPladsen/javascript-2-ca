@@ -36,7 +36,7 @@
           id="hamburger"
         />
         <ul
-          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-center"
+          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-end lg:items-center z-10"
           id="navList"
         >
           <li
@@ -59,7 +59,7 @@
     </header>
     <main class="text-center">
       <section class="w-fit mx-auto">
-        <div class="flex justify-center items-center pb-10 flex-col gap-10">
+        <div class="flex justify-center items-center pb-10 flex-col gap-3">
           <img
             id="profileBanner"
             src="/src/images/bannerPlaceHolder.svg"
@@ -73,9 +73,7 @@
             class="border-white border-2 rounded-full object-cover mt-8 h-[150px] w-[150px]"
           />
           <h1 id="profileTitle" class="text-4xl text-white">Loading...</h1>
-        </div>
-        <div class="flex flex-col gap-5 mt-5">
-          <div class="flex gap-4 items-center justify-center">
+          <div class="flex gap-4 items-center justify-center text-white">
             <p>
               Followers: <span id="profileFollowers" class="font-bold">0</span>
             </p>
@@ -84,29 +82,34 @@
             </p>
             <p>Posts: <span id="profilePosts" class="font-bold">0</span></p>
           </div>
-          <div class="flex justify-between mx-auto gap-3">
-            <a class="w-fit mx-auto" href="/profile/edit"
-              ><button
-                class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
-              >
-                Edit profile
-              </button></a
+        </div>
+        <div
+          class="absolute top-24 right-4 flex flex-col md:flex-row w-fit gap-3"
+        >
+          <a class="w-fit mx-auto" href="/profile/edit"
+            ><button
+              class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
             >
-            <a class="w-fit mx-auto" href="/"
-              ><button
-                id="logoutButton"
-                class="px-4 py-2 border bg-red-500 hover:text-red-500 border-red-500 hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110"
-              >
-                Log out
-              </button></a
+              Edit profile
+            </button></a
+          >
+          <a class="w-fit mx-auto" href="/"
+            ><button
+              id="logoutButton"
+              class="px-4 py-2 border hover:bg-red-500 bg-white hover:text-white text-red-500 border-red-500 rounded w-fit mx-auto transition-all hover:scale-110"
             >
-          </div>
+              Log out
+            </button></a
+          >
         </div>
       </section>
-      <section class="pt-10 pb-20 md:px-[20vw] w-full">
+      <section class="pt-4 pb-20 md:px-[20vw] w-full">
         <div>
           <h2 class="text-2xl pb-5">Your posts</h2>
-          <div id="postsContainer" class="flex flex-col gap-10 items-center">
+          <div
+            id="postsContainer"
+            class="pt-5 flex flex-col w-full lg:flex-row lg:flex-wrap items-center justify-center mx-auto px-[5vw] md:px-0 gap-5"
+          >
             You have not posted anything yet...
             <button
               type="submit"

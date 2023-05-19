@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NorOn - Edit Post</title>
+    <title>NorOn - Edit post</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -36,36 +36,82 @@
           id="hamburger"
         />
         <ul
-          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row"
-          id="navDropDownContent"
+          class="hidden absolute gap-6 py-10 flex-col left-0 top-[60px] px-10 bg-red-500 w-full lg:w-fit lg:p-0 lg:static text-white lg:flex lg:flex-row items-start lg:items-center z-10"
+          id="navList"
         >
-          <li class="hover:cursor-pointer transition-all opacity-70">
-            <a href="/index.html"> Home </a>
+          <li
+            class="hover:cursor-pointer hover:opacity-100 opacity-70 transition-all"
+          >
+            <a href="/"> Login </a>
           </li>
           <li
-            class="hover:cursor-pointer underline underline-offset-4 opacity-100 transition-all"
+            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all group"
           >
-            <a href="/posts"> Posts </a>
-          </li>
-          <li
-            class="hover:cursor-pointer hover:opacity-100 hover:underline hover:underline-offset-4 opacity-70 transition-all"
-          >
-            <a href="/profile/"> Profile </a>
+            <a href="/profile/register/"> Register </a>
           </li>
         </ul>
       </nav>
     </header>
-    <main class="text-center py-10 px-[10vw]">
-      <h1 id="postTitle" class="text-2xl py-5">Post</h1>
-      <div
-        class="pt-5 flex flex-col items-center justify-center gap-5 max-w-[700px] mx-auto"
-      >
-        <p id="postContent">Content loading...</p>
-        <div class="flex justify-between">
-          <p id="postDate">01.01.2001</p>
-          <p id="postAuthor">Author</p>
+    <main class="text-center py-10">
+      <h1 class="text-2xl py-5">Edit post</h1>
+      <form class="w-fit mx-auto flex flex-col gap-5" id="editPostForm">
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="title">Title</label>
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="text"
+            name="title"
+            id="title"
+            maxlength="20"
+            required
+          />
         </div>
-      </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="body">Text</label>
+          <textarea
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner h-40"
+            type="text"
+            name="body"
+            id="body"
+            required
+          ></textarea>
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="media"
+            >Media<span class="pl-2 text-gray-400 text-xs"
+              >*Optional</span
+            ></label
+          >
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="url"
+            name="media"
+            id="media"
+          />
+        </div>
+        <div class="flex flex-col w-[80vw] md:w-[350px] gap-1">
+          <label class="text-left" for="tags"
+            >Tags<span class="pl-2 text-gray-400 text-xs"
+              >*Separate tags with commas</span
+            ></label
+          >
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="text"
+            name="tags"
+            id="tags"
+          />
+        </div>
+
+        <button
+          class="px-4 py-2 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+          type="submit"
+          id="editPostButton"
+          disabled
+        >
+          Save post
+        </button>
+      </form>
     </main>
 
     <footer>
