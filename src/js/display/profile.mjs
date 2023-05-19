@@ -21,6 +21,7 @@ export async function displayProfile(name) {
   }
   if (user.banner) {
     profileBanner.src = user.banner;
+    profileBanner.style.filter = "brightness(0.65)";
   }
   if (user.posts) {
     // display posts from newest to oldest
