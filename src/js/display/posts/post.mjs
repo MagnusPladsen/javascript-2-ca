@@ -1,10 +1,12 @@
 import * as posts from "../../api/posts/index.mjs";
 import * as URL from "../../url/index.mjs";
+import * as storage from "../../storage/index.mjs";
 
 export async function displayPost() {
   const postId = URL.getParams("id");
-
   const post = await posts.getPost(postId);
+
+  const loggedInUser = storage.getProfile();
 
   // comments
   // reactions
@@ -24,14 +26,19 @@ export async function displayPost() {
     0,
     10
   )}</span>`;
-  postAuthor.innerHTML = `By: <a href="/profile/user/?name=${
-    post.author.name
+  postAuthor.innerHTML = `By: <a href="
+  ${
+    loggedInUser.name === post.author.name
+      ? "/profile/"
+      : `/profile/user/?name=${post.author.name}`
   }" class="font-bold hover:text-red-500 hover:underline underline-offset-2"><div class="flex items-center gap-1"><p>${
     post.author.name
   }</p><img
   id="profilePicture"
   src="${
-    post.author.avatar ? post.author.avatar : "/src/images/ProfilePlaceHolder.svg"
+    post.author.avatar
+      ? post.author.avatar
+      : "/src/images/ProfilePlaceHolder.svg"
   }"
   alt="Profile picture"
   height="15"

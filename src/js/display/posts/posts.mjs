@@ -1,8 +1,6 @@
 import * as posts from "../../api/posts/index.mjs";
-import * as URL from "../../url/index.mjs";
 
 export async function displayPosts() {
-  const path = URL.getPath();
   const postsContainer = document.querySelector("#postsContainer");
 
   const postsList = await posts.getPosts();
