@@ -43,7 +43,7 @@ export async function displayPost() {
     <img
     src="${post.media}"
     alt="Post media"
-    class="w-full object-cover h-auto" /> `;
+    class="w-full object-cover h-auto rounded" /> `;
   }
   if (post.tags) {
     postTags.innerHTML = `
