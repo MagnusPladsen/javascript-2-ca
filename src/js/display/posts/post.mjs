@@ -31,7 +31,7 @@ export async function displayPost() {
   }</p><img
   id="profilePicture"
   src="${
-    post.author.avatar ? post.author.avatar : "/src/images/whiteProfilePlaceHolder.svg"
+    post.author.avatar ? post.author.avatar : "/src/images/ProfilePlaceHolder.svg"
   }"
   alt="Profile picture"
   height="15"
