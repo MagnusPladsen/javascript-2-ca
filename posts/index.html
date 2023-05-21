@@ -53,6 +53,52 @@
     <main class="text-center w-full py-10 md:px-[20vw]">
       <h1 class="text-2xl py-5">Recent posts</h1>
       <div
+        class="flex gap-5 px-[5vw] md:px-0 flex-col mx-auto items-start md:justify-between md:flex-row w-full"
+      >
+        <form id="sortPostsForm" class="flex gap-2 h-fit">
+          <select
+            id="sortType"
+            name="sortType"
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+          >
+            <option value="desc">Newest</option>
+            <option value="asc">Oldest</option>
+          </select>
+          <button
+            id="sortPostsButton"
+            class="px-2 py-1 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+            type="submit"
+          >
+            Sort
+          </button>
+        </form>
+
+        <form id="filterByTagForm" class="flex gap-2 h-fit">
+          <input
+            class="border border-gray-300 rounded px-2 py-1 hover:border-gray-500 transition-all shadow-inner"
+            type="text"
+            name="filterByTag"
+            id="filterByTag"
+            pattern="^[A-Za-z0-9]*$"
+          /><button
+            id="filterByTagButton"
+            class="px-2 py-1 border bg-secondary hover:text-secondary border-secondary hover:bg-white rounded w-fit mx-auto text-white transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+        <div class="absolute w-full md:static">
+          <button
+            id="resetButton"
+            class="absolute md:static md:right-auto right-0 px-2 py-1 border bg-white hover:text-white border-secondary hover:bg-secondary rounded w-fit mx-auto text-secondary transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+            type="reset"
+          >
+            Reset all
+          </button>
+        </div>
+      </div>
+      <div
         id="postsContainer"
         class="pt-5 flex flex-col w-full lg:flex-row lg:flex-wrap items-center justify-center mx-auto px-[5vw] md:px-0 gap-5"
       >
