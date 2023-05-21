@@ -26,14 +26,21 @@ export async function login(profileData) {
   const headers = {
     "Content-Type": "application/json",
   };
+
+  const error = document.querySelector("#error");
   try {
     const response = await fetch(url, {
       method,
       headers,
       body,
     });
-
     const data = await response.json();
+
+    if (data.errors) {
+      error.classList.remove("hidden");
+      error.innerHTML = data.errors[0].message;
+      return;
+    }
 
     const { accessToken, ...user } = data;
 

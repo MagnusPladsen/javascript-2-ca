@@ -1,4 +1,4 @@
-import * as storage from "../storage/index.mjs";
+import * as storage from "../../storage/index.mjs";
 
 /**
  * @returns {Object} headers

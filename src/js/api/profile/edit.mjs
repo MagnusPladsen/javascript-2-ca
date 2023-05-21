@@ -1,4 +1,4 @@
-import { authFetch } from "../authFetch.mjs";
+import { authFetch } from "../auth/authFetch.mjs";
 import { API_URL } from "../constants.mjs";
 
 const action = "/profiles/";
@@ -17,6 +17,9 @@ const method = "PUT";
 export async function edit(profileData, name) {
   const url = `${API_URL}${action}${name}/media`;
   const body = JSON.stringify(profileData);
+
+  const error = document.querySelector("#error");
+
   try {
     const response = await authFetch(url, {
       method,
@@ -24,8 +27,13 @@ export async function edit(profileData, name) {
     });
     const data = await response.json();
 
+    if (data.errors) {
+      error.classList.remove("hidden");
+      error.innerHTML = data.errors[0].message;
+      return;
+    }
+
     return data;
-    // TODO: add error message for user
   } catch (error) {
     console.log(error);
   }

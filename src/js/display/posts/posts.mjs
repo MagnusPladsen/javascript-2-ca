@@ -21,6 +21,13 @@ export async function displayPosts(postsList) {
     return;
   }
 
+  if (postsList.length < 1) {
+    postsContainer.innerHTML = `
+    <div class="w-full mx-auto">No posts found matching your criteria.</div>
+    `;
+    return;
+  }
+
   postsContainer.innerHTML = "";
   postsList.map((post) => {
     postsContainer.innerHTML += `

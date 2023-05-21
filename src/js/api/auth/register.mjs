@@ -27,6 +27,9 @@ export async function register(profile) {
   const headers = {
     "Content-Type": "application/json",
   };
+
+  const error = document.querySelector("#error");
+
   try {
     const response = await fetch(url, {
       method,
@@ -36,14 +39,14 @@ export async function register(profile) {
     const data = await response.json();
 
     if (data.errors) {
-      alert(data.errors[0].message);
+      error.classList.remove("hidden");
+      error.innerHTML = data.errors[0].message;
       return;
     } else {
-      alert("You have successfully registered! Please log in.");
       window.location.href = "/";
     }
-    // TODO: add error message for user
   } catch (error) {
-    console.log(error);
+    error.classList.remove("hidden");
+    error.innerHTML = error;
   }
 }

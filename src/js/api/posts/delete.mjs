@@ -1,5 +1,5 @@
 import { API_URL } from "../constants.mjs";
-import { authFetch } from "../authFetch.mjs";
+import { authFetch } from "../auth/authFetch.mjs";
 
 const action = "/posts";
 const method = "DELETE";
