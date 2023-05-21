@@ -1,3 +1,19 @@
+/**
+ * @module src/js/display/navBar
+ * @description This module contains all the functions related to displaying the logged in version of the navigation bar.
+ * @param {HTMLelements} navList array of HTMLelements
+ * @param {object} profile profile object
+ * @param {string} path path of the current page
+ * @example
+ * const navList = document.querySelectorAll("nav ul li");
+ * const profile = {
+ * name: "John Doe",
+ * avatar: "/src/images/whiteProfilePlaceHolder.svg",
+ * };
+ * const path = "/posts/";
+ * displayLoggedInNavBar(navList, profile, path)
+ */
+
 export function displayLoggedInNavBar(navList, profile, path) {
   navList.innerHTML = `
   <li

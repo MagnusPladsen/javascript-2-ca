@@ -1,5 +1,11 @@
 import { login } from "../../api/auth/login.mjs";
 
+/**
+ * @module handlers/profile/login
+ * @description This function sets the listener for the login form. It uses the data from the form to call the login function from the API.
+ * @returns {void}
+ */
+
 export function setLoginFormListener() {
   const form = document.querySelector("#loginForm");
 

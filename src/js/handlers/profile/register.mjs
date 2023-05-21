@@ -1,4 +1,10 @@
-import * as auth from "../../api/auth/index.mjs"
+import * as auth from "../../api/auth/index.mjs";
+
+/**
+ * @module handlers/profile/register
+ * @description This function sets the listener for the register form. It uses the data from the form to call the register function from the API.
+ * @returns {void}
+ */
 
 export function setRegisterFormListener() {
   const form = document.querySelector("#registerForm");

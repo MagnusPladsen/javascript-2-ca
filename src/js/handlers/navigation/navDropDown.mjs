@@ -1,3 +1,8 @@
+/**
+ * @module /handlers/navigation/navDropDown
+ * @description This module contains the function that sets the event listener for the nav drop down.
+ */
+
 export function setNavDropDownListener() {
   const hamburger = document.querySelector("#hamburger");
   const navDropDownContent = document.querySelector("#navList");

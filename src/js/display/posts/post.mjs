@@ -2,6 +2,13 @@ import * as posts from "../../api/posts/index.mjs";
 import * as URL from "../../url/index.mjs";
 import * as storage from "../../storage/index.mjs";
 
+/**
+ * @module display/post
+ * @description This function displays all the posts. Gets the id from the URL params, and uses it to get the post from the API and display them.
+ * @returns {void}
+ */
+
+
 export async function displayPost() {
   const postId = URL.getParams("id");
   const post = await posts.getPost(postId);

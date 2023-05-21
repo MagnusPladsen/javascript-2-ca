@@ -1,6 +1,13 @@
 import * as auth from "../../api/auth/index.mjs";
 import * as storage from "../../storage/index.mjs";
 
+/**
+ * @module handlers/profile/edit
+ * @description This module contains all the functions related to editing a profile. Uses the data from local storage to prefill the form. Then sends the updated form data to the API. Then retrieves the updated profile from the API and saves it to local storage.
+ * @see module:api/auth/
+ * @see module:storage/
+ */
+
 export function setEditFormListener() {
   const form = document.querySelector("#editProfileForm");
   const storedProfile = storage.getProfile();

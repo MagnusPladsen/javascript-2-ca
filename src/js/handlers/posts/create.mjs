@@ -1,5 +1,11 @@
 import * as posts from "../../api/posts/index.mjs";
 
+/**
+ * @module handlers/posts/create
+ * @description This module contains all the functions related to creating posts. Used values from the createPost form and sends them to the API.
+ * @see module:api/posts/create
+ */
+
 export function setCreatePostListener() {
   const form = document.querySelector("#createPostForm");
 

@@ -1,6 +1,16 @@
 import * as post from "../../api/posts/index.mjs";
 import * as URL from "../../url/index.mjs";
 
+/**
+ * @async
+ * @module display/posts/profilePosts
+ * @description This function displays the posts of a user on their profile page. It also displays the edit, view and delete buttons if the user is logged in and viewing their own profile.
+ * @param {array} postsList - Array of posts.
+ * @returns {void}
+ * @example
+ * displayProfilePosts(postsList);
+ */
+
 export async function displayProfilePosts(postsList) {
   const postsContainer = document.querySelector("#postsContainer");
   const path = URL.getPath();
@@ -38,8 +48,7 @@ export async function displayProfilePosts(postsList) {
                 Edit
               </button>
             </a>
-              <button id="deletePost"
-              class="px-4 py-2 border hover:bg-red-500 bg-white hover:text-white text-red-500 border-red-500 rounded w-fit mx-auto transition-all hover:scale-110"
+              <button class="deletePost px-4 py-2 border hover:bg-red-500 bg-white hover:text-white text-red-500 border-red-500 rounded w-fit mx-auto transition-all hover:scale-110"
               >
                 Delete
               </button>`
@@ -50,7 +59,7 @@ export async function displayProfilePosts(postsList) {
         </div>`;
   });
 
-  const deleteButtons = document.querySelectorAll("#deletePost");
+  const deleteButtons = document.querySelectorAll(".deletePost");
 
   deleteButtons.forEach((button) => {
     button.addEventListener("click", async (e) => {

@@ -9,6 +9,15 @@ const profileFollowing = document.querySelector("#profileFollowing");
 const profilePosts = document.querySelector("#profilePosts");
 const profileBanner = document.querySelector("#profileBanner");
 
+/**
+ * @module display/profile
+ * @description This function displays the profile page of a user.
+ * @param {string} name - Name of the user.
+ * @returns {void}
+ * @example
+ * displayProfile("name");
+ */
+
 export async function displayProfile(name) {
   const user = await profile.getProfile(name);
   browserTitle.textContent = "NorOn - " + user.name;

@@ -1,6 +1,14 @@
 import * as posts from "../../api/posts/index.mjs";
 import * as URL from "../../url/index.mjs";
 
+/**
+ * @async
+ * @module handlers/posts/update
+ * @description This module contains all the functions related to updating posts. Takes the post ID from the URL params and prefills the form with the existing values. Then uses the updated form data and sends it to the API.
+ * @see module:api/posts
+ * @see module:url
+ */
+
 export async function setUpdatePostListener() {
   const form = document.querySelector("#editPostForm");
   const id = URL.getParams("id");

@@ -1,10 +1,22 @@
 import * as posts from "../../api/posts/index.mjs";
 
-export async function displayPosts() {
+/**
+ * @module display/posts
+ * @description This module contains all the functions related to displaying posts on the /posts/ page.
+ * @param {Array} postsList - The list of posts to display.
+ * if no postsList is provided, the function will fetch the posts from the API.
+ * @returns {void}
+ * @example
+ * const postsList = await posts.getPosts();
+ * displayPosts(postsList);
+ */
+
+export async function displayPosts(postsList) {
   const postsContainer = document.querySelector("#postsContainer");
 
-  const postsList = await posts.getPosts();
-
+  if (!postsList) {
+    postsList = await posts.getPosts();
+  }
   if (!postsList || !postsContainer) {
     return;
   }
