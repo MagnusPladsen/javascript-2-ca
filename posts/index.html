@@ -53,7 +53,7 @@
     <main class="text-center w-full py-10 md:px-[20vw]">
       <h1 class="text-2xl py-5">Recent posts</h1>
       <div
-        class="flex gap-5 px-[5vw] md:px-0 flex-col mx-auto items-start md:justify-between md:flex-row w-full"
+        class="flex gap-5 px-[5vw] md:px-0 flex-col mx-auto items-start md:justify-between md:flex-row w-full md:w-fit md:mx-auto"
       >
         <form id="sortPostsForm" class="flex gap-2 h-fit">
           <select
@@ -88,23 +88,23 @@
             Search
           </button>
         </form>
-        <div class="absolute w-full md:static">
+        <div class="absolute w-full md:static md:w-fit">
           <button
             id="resetButton"
-            class="absolute md:static md:right-auto right-0 px-2 py-1 border bg-white hover:text-white border-secondary hover:bg-secondary rounded w-fit mx-auto text-secondary transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
+            class=" px-2 py-1 border bg-white hover:text-white border-secondary hover:bg-secondary rounded w-fit mx-auto text-secondary transition-all hover:scale-110 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:border-gray-300 disabled:hover:scale-100 disabled:hover:text-white"
             type="reset"
           >
-            Reset all
+            Reset
           </button>
         </div>
       </div>
       <div
         id="postsContainer"
-        class="pt-5 flex flex-col w-full lg:flex-row lg:flex-wrap items-center justify-center mx-auto px-[5vw] md:px-0 gap-5"
+        class="pt-5 flex flex-col w-fit lg:flex-row lg:flex-wrap  mx-auto px-[5vw] gap-5"
       >
         Loading posts...
         <div
-          class="group hover:cursor-pointer hover:border-red-500 hover:shadow-lg hover:scale-105 bg-gray-100 border border-gray-300 rounded shadow p-4 flex flex-col gap-2 transition-all w-full md:w-[350px] justify-between"
+          class="group hover:cursor-pointer hover:border-red-500 hover:shadow-lg hover:scale-105 bg-gray-100 border border-gray-300 rounded shadow p-4 flex flex-col gap-4 transition-all w-full md:max-w-[400px] md:mx-auto  justify-between"
         >
           <p
             class="text-lg font-bold transition-all group-hover:text-red-500"

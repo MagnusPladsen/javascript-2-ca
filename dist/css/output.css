@@ -1077,8 +1077,30 @@ video {
     right: auto;
   }
 
+  .md\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .md\:w-\[350px\] {
     width: 350px;
+  }
+
+  .md\:w-fit {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .md\:min-w-\[200px\] {
+    min-width: 200px;
+  }
+
+  .md\:max-w-\[400px\] {
+    max-width: 400px;
+  }
+
+  .md\:\!max-w-\[400px\] {
+    max-width: 400px !important;
   }
 
   .md\:flex-row {

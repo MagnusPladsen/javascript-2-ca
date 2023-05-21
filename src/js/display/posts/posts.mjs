@@ -24,8 +24,8 @@ export async function displayPosts(postsList) {
   postsContainer.innerHTML = "";
   postsList.map((post) => {
     postsContainer.innerHTML += `
-    <a href="/post/?id=${post.id}" class="w-full md:w-fit">
-        <div class="group hover:cursor-pointer hover:border-red-500 hover:shadow-lg hover:scale-105 bg-gray-100 border border-gray-300 rounded shadow p-4 flex flex-col gap-4 transition-all w-full md:max-w-[400px] justify-between">
+    <a href="/post/?id=${post.id}" class="w-full mx-auto">
+        <div class="group hover:cursor-pointer hover:border-red-500 hover:shadow-lg hover:scale-105 bg-gray-100 border border-gray-300 rounded shadow p-4 flex flex-col gap-4 transition-all w-full md:max-w-[400px] md:mx-auto justify-between">
           <p class="text-lg font-bold transition-all group-hover:text-red-500">${
             post.title
           }</p>
